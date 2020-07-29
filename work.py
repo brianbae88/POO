@@ -65,67 +65,97 @@
 		
 # currentcharacter = s[0]
 
-gradebook = """
-# ignore blank lines and lines starting with #'s
-wilma,91,93,0
-fred,80,85,90,95,100
-betty,100
-"""
+# gradebook = """
+# # ignore blank lines and lines starting with #'s
+# wilma,91,93,0
+# fred,80,85,90,95,100
+# betty,100
+# """
 
-def studentwithhighestavg(gradeBook):
-	maxAvg = 0
-	maxAvgName = ""
-	for sentences in gradeBook.splitlines():
-		if sentences[0:1] == '#' or sentences[0:1] == "":
-			continue
-		z = sentences.split(',')
-		add = 0
-		name = ''
-		for i in range (1,len(z)):
-			z[i] = int(z[i])
-			add += z[i] 
-			name = z[0]
-		avg = add / len(z[1:])
-		if avg > maxAvg:
-			maxAvg = avg
-			maxAvgName = name
-		return maxAvg , maxAvgName
 
+
+# def studentwithhighestavg(gradeBook):
+# 	maxAvg = 0
+# 	maxAvgName = ""
+# 	for sentences in gradeBook.splitlines():
+# 		if sentences[0:1] == '#' or sentences[0:1] == "":
+# 			continue
+# 		z = sentences.split(',')
+# 		add = 0
+# 		name = ''
+# 		for i in range (1,len(z)):
+# 			z[i] = int(z[i])
+# 			add += z[i] 
+# 			name = z[0]
+# 		avg = add / len(z[1:])
+# 		if avg > maxAvg:
+# 			maxAvg = avg
+# 			maxAvgName = name
+# 	return maxAvg , maxAvgName #be careful of where the return thing is 
 
 		
 
 
-	
-#여기서 이 z list를 int로 다 바꾼 다음 z[0:]까지 더하고 그 len(z)만큼 나누면 avg가 나올 수 있을거같다. notes 3에 해놓은거 처럼 maxavg = a 고 c 가 variable b가 int가 된 z
-	
+# myList = [['John, 100,93,92'],['Becky, 98,78,68,70'], ['Karen, 78, 98, 81, 78'], ['Joanne, 98, 78, 81, 85, 80'], ['Liv, 78, 95, 78, 67']]
 
-#근데 만약에 z를 라인별로 할수있었으면 더 좋을듯. 라인별로 split?? 
+# def question(myList):
+# 	maxAvg = 0
+# 	maxAvgName = ''
+
+# 	for i in range (0,len(myList)):
+# 		# print i 
+# 		# print myList[i][0]
+# 		# print type(myList[i])
+# 		# print type(myList[i][0])
+# 		z = myList[i][0].split(',') #뒤에 있는 [0]은 지금 'john,100,93,92'이걸 말하고있는거임 저거 하나가 one element inside the element
+# 		# print len(z[1:])
+# 		add = 0
+# 		name = ''
+# 		for f in range (1,len(z)):
+# 			z[f] = int(z[f])
+# 			add += z[f] 
+# 			name = z[0]
+# 		avg = add / len(z[1:])
+# 		print avg
+# 		if avg > maxAvg:
+# 			maxAvg = avg
+# 			maxAvgName = name
+# 	return maxAvg , maxAvgName 
 
 
-	
-		# print a
-	
-		# for a in z:
-		# 	a = int(a)
-		# 	print a 
-
-		# for b in len(z):
-		# 	print b
-		# print z
-		# print max(z)
-		# for avg in z:
-		# 	avg = int(avg)
-		# 	print avg
 		
 
+# 	# for i in range (1,)
+
+
+# print question (myList)
 
 
 
+def isPrime(x):
+	if x == 1 or x < 0:
+		return False
+	for i in range (2, x):
+		print i 
+		if x % i == 0:
+			return False
+		else:
+			return True
 
-print studentwithhighestavg(gradebook)
+print isPrime(39)
 
 
+def nthPrime(n):
+	counter = 0
+	integer = 0
+	while counter < n:
+		integer += 1
+		if isPrime(integer) == True:
+			counter += 1
+		print counter, integer
+	return integer
 
+print nthPrime(4)
 
 
 
